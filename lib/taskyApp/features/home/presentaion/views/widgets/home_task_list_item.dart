@@ -23,7 +23,8 @@ class HomeTaskListItem extends StatelessWidget {
                 height: 60,
                 width: 60,
                 decoration: BoxDecoration(
-                    color: kPrimaryColor, borderRadius: BorderRadius.circular(8)),
+                    color: kPrimaryColor,
+                    borderRadius: BorderRadius.circular(8)),
                 child: Image.asset(appLogo)),
             Expanded(
               child: Padding(

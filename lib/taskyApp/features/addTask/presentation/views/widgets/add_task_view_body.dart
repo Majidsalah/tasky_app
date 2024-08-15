@@ -3,9 +3,9 @@ import 'package:task/taskyApp/core/utiles/app_text_styles.dart';
 import 'package:task/taskyApp/core/widgets/custom_app_button.dart';
 import 'package:task/taskyApp/core/widgets/custom_drop_down_menu.dart';
 import 'package:task/taskyApp/core/widgets/custom_text_field.dart';
-import 'package:task/taskyApp/features/home/presentaion/views/widgets/add_image_widget.dart';
-import 'package:task/taskyApp/features/home/presentaion/views/widgets/custom_app_bar.dart';
-import 'package:task/taskyApp/features/home/presentaion/views/widgets/date_picker_calender.dart';
+import 'package:task/taskyApp/features/addTask/presentation/views/widgets/add_image_widget.dart';
+import 'package:task/taskyApp/core/widgets/custom_app_bar.dart';
+import 'package:task/taskyApp/features/addTask/presentation/views/widgets/date_picker_calender.dart';
 
 class AddTaskViewBody extends StatelessWidget {
   const AddTaskViewBody({super.key});
@@ -49,7 +49,7 @@ class AddTaskViewBody extends StatelessWidget {
                 prefixIcon: true),
             const SizedBox(height: 16),
             Text('Due date ', style: textStyle12),
-             const SizedBox(height: 8),
+            const SizedBox(height: 8),
             DatePickerCalender(),
             const SizedBox(height: 24),
             CustomAppButton(
@@ -64,4 +64,3 @@ class AddTaskViewBody extends StatelessWidget {
     );
   }
 }
-

@@ -4,9 +4,10 @@ import 'package:task/taskyApp/core/utiles/constanst.dart';
 
 class ColoredFlagWidget extends StatelessWidget {
   const ColoredFlagWidget({
-    super.key, required this.priority,
+    super.key,
+    required this.priority,
   });
- final String priority;
+  final String priority;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -15,15 +16,14 @@ class ColoredFlagWidget extends StatelessWidget {
         const SizedBox(width: 4),
         Text(priority,
             style: textStyle12.copyWith(
-                color: getFlagColor(),
-                fontWeight: FontWeight.bold)),
+                color: getFlagColor(), fontWeight: FontWeight.bold)),
         const Spacer(flex: 1),
         Text('30/12/2022', style: textStyle12)
       ],
     );
   }
 
-    getFlagColor() {
+  getFlagColor() {
     switch (priority) {
       case "Medium":
         return kPrimaryColor;

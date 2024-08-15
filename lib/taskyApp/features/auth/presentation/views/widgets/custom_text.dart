@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:task/taskyApp/core/utiles/app_text_styles.dart';
 
-
 class CustomText extends StatelessWidget {
   const CustomText({
-    super.key, required this.text,
+    super.key,
+    required this.text,
   });
   final String text;
 

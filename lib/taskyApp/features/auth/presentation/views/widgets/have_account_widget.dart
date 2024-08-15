@@ -3,7 +3,8 @@ import 'package:task/taskyApp/core/utiles/app_text_styles.dart';
 import 'package:task/taskyApp/core/utiles/constanst.dart';
 
 class HaveAnAccountWidget extends StatelessWidget {
-  const HaveAnAccountWidget({super.key, required this.haveAccount, required this.onPressed});
+  const HaveAnAccountWidget(
+      {super.key, required this.haveAccount, required this.onPressed});
   final bool haveAccount;
   final Function() onPressed;
   @override

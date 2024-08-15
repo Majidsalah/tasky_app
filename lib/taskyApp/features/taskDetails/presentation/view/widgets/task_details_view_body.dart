@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:task/taskyApp/core/utiles/app_text_styles.dart';
 import 'package:task/taskyApp/core/widgets/custom_drop_down_menu.dart';
-import 'package:task/taskyApp/features/home/presentaion/views/widgets/custom_app_bar.dart';
-import 'package:task/taskyApp/features/home/presentaion/views/widgets/date_picker_calender.dart';
+import 'package:task/taskyApp/core/widgets/custom_app_bar.dart';
+import 'package:task/taskyApp/features/addTask/presentation/views/widgets/date_picker_calender.dart';
 
 class TaskDetailsViewBody extends StatelessWidget {
   const TaskDetailsViewBody({super.key});

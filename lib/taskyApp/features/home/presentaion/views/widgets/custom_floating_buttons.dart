@@ -23,7 +23,7 @@ class CustomFloatingButtons extends StatelessWidget {
           shape: const CircleBorder(),
           heroTag: null,
           backgroundColor: kPrimaryColor,
-          onPressed: () =>GoRouter.of(context).push(AppRouter.kAddTaskView),
+          onPressed: () => GoRouter.of(context).push(AppRouter.kAddTaskView),
           child: const Icon(Icons.add, color: Colors.white, size: 32),
         ),
       ],

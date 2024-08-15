@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:task/taskyApp/core/utiles/app_text_styles.dart';
 import 'package:task/taskyApp/core/utiles/constanst.dart';
-import 'package:task/taskyApp/features/home/presentaion/views/widgets/custom_app_bar.dart';
+import 'package:task/taskyApp/core/widgets/custom_app_bar.dart';
 
 class UserProfileView extends StatelessWidget {
   const UserProfileView({super.key});
@@ -56,8 +56,7 @@ class UserProfileViewBody extends StatelessWidget {
                 ),
                 subtitle: Text(subTitle[index],
                     style: textStyle16.copyWith(
-                         fontSize: 18,
-                        color: Colors.black.withOpacity(0.6))),
+                        fontSize: 18, color: Colors.black.withOpacity(0.6))),
                 trailing: title[index] == 'Phone'
                     ? Icon(
                         Icons.content_copy,

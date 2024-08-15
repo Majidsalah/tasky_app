@@ -23,13 +23,15 @@ class CustomDropDownButton extends StatefulWidget {
 }
 
 class _CustomDropDownButtonState extends State<CustomDropDownButton> {
-  String? _selectedValue;
 
+String ?_selectedValue;
   @override
   Widget build(BuildContext context) {
+      
     return SizedBox(
       width: 325,
       child: DropdownButtonFormField(
+        
         icon: widget.filled
             ? Icon(IconlyBold.arrow_down_2, size: 20, color: kPrimaryColor)
             : const Icon(CupertinoIcons.chevron_down, size: 20),
@@ -42,9 +44,7 @@ class _CustomDropDownButtonState extends State<CustomDropDownButton> {
                       Icon(CupertinoIcons.flag, size: 20, color: kPrimaryColor))
               : null,
           filled: widget.filled,
-          fillColor: widget.filled
-              ? kSecondryColor
-              : null,
+          fillColor: widget.filled ? kSecondryColor : null,
           border: widget.filled
               ? OutlineInputBorder(
                   borderSide: BorderSide.none,

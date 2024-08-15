@@ -24,10 +24,7 @@ class CustomAppBar extends StatelessWidget {
           style: textStyle16,
         ),
         const Spacer(flex: 1),
-        leadingIcon
-            ? const CustomPopupMenuButton()
-            : const Text(''),
-        
+        leadingIcon ? const CustomPopupMenuButton() : const Text(''),
       ],
     );
   }

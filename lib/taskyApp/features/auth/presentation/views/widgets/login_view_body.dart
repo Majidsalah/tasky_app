@@ -22,7 +22,18 @@ class LogInViewBody extends StatelessWidget {
           ),
           CustomTextField(isPhone: true),
           const SizedBox(height: 16),
-          CustomTextField(labelText: 'Password...', isPassword: true),
+          CustomTextField(
+            labelText: 'Password...',
+            isPassword: true,
+            validator: (val) {
+              if (val!.isEmpty) {
+                return 'This field is required';
+              } else if (val.length < 6) {
+                return 'Password length must be more than 6 ';
+              }
+              return null;
+            },
+          ),
           const SizedBox(height: 16),
           CustomAppButton(
               child: Text('Sign In',

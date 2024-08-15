@@ -1,6 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:intl_phone_field/countries.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:intl_phone_field/phone_number.dart';
 import 'package:task/taskyApp/core/utiles/app_text_styles.dart';
+import 'package:task/taskyApp/core/widgets/phone_field.dart';
 
 // ignore: must_be_immutable
 class CustomTextField extends StatefulWidget {
@@ -9,13 +14,14 @@ class CustomTextField extends StatefulWidget {
       this.isPassword = false,
       this.isPhone = false,
       this.showEyeIcon = true,
-       this.padding=16,
+      this.padding = 16,
       this.labelText,
       this.height = 55,
       this.minLines,
       this.maxLines,
       this.controller,
-      this.keyboardType});
+      this.keyboardType,
+      this.validator});
   String? labelText;
   bool isPassword;
   bool showEyeIcon;
@@ -26,6 +32,7 @@ class CustomTextField extends StatefulWidget {
   TextEditingController? controller;
   TextInputType? keyboardType;
   double padding;
+  String? Function(String?)? validator;
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
 }
@@ -37,17 +44,18 @@ class _CustomTextFieldState extends State<CustomTextField> {
         ? SizedBox(
             height: widget.height,
             child: Padding(
-              padding:  EdgeInsets.symmetric(horizontal: widget.padding),
+              padding: EdgeInsets.symmetric(horizontal: widget.padding),
               child: widget.isPassword
                   ? TextFormField(
+                    
+                      validator: widget.validator,
                       keyboardType: widget.keyboardType,
                       controller: widget.controller,
                       textInputAction: TextInputAction.done,
                       obscureText: widget.isPassword,
                       decoration: InputDecoration(
-                          suffixIcon: widget.isPassword
-                              ? passwordIconFunction(widget.showEyeIcon)
-                              : null,
+                      
+                          suffixIcon: passwordIconFunction(widget.showEyeIcon),
                           labelText: widget.labelText,
                           alignLabelWithHint: true,
                           floatingLabelBehavior: FloatingLabelBehavior.never,
@@ -62,12 +70,11 @@ class _CustomTextFieldState extends State<CustomTextField> {
                       maxLines: widget.maxLines,
                       keyboardType: widget.keyboardType,
                       controller: widget.controller,
+                      validator: widget.validator,
                       textInputAction: TextInputAction.done,
-                      obscureText: widget.isPassword,
                       decoration: InputDecoration(
-                          suffixIcon: widget.isPassword
-                              ? passwordIconFunction(widget.showEyeIcon)
-                              : null,
+                        errorMaxLines:  widget.maxLines,
+                        
                           labelText: widget.labelText,
                           alignLabelWithHint: true,
                           floatingLabelBehavior: FloatingLabelBehavior.never,
@@ -79,7 +86,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     ),
             ),
           )
-        : const PhoneNumberField();
+        : PhoneNumberField();
   }
 
   passwordIconFunction(bool seePassword) {
@@ -95,28 +102,4 @@ class _CustomTextFieldState extends State<CustomTextField> {
   }
 }
 
-class PhoneNumberField extends StatelessWidget {
-  const PhoneNumberField({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: IntlPhoneField(
-        disableLengthCheck: true,
-        dropdownIcon: const Icon(Icons.keyboard_arrow_down_outlined),
-        dropdownIconPosition: IconPosition.trailing,
-        decoration: InputDecoration(
-          labelText: 'Phone Number',
-          labelStyle: textStyle14,
-          border: const OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(12)),
-            borderSide: BorderSide(),
-          ),
-        ),
-        initialCountryCode: 'EG',
-        onChanged: (phone) {},
-      ),
-    );
-  }
-}

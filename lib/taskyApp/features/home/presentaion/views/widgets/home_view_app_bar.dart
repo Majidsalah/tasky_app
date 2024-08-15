@@ -10,7 +10,7 @@ class HomeViewAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric( horizontal:16.0,vertical: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24),
       child: Row(
         children: [
           Container(
@@ -24,7 +24,7 @@ class HomeViewAppBar extends StatelessWidget {
             flex: 1,
           ),
           IconButton(
-            onPressed: () =>GoRouter.of(context).push(AppRouter.kProfile),
+            onPressed: () => GoRouter.of(context).push(AppRouter.kProfile),
             icon: Icon(IconlyBold.profile, color: kPrimaryColor, size: 24),
           ),
           IconButton(

@@ -21,5 +21,5 @@ class TasksHomeViewBody extends StatelessWidget {
         const HomeTasksListView()
       ],
     );
-  }    
+  }
 }

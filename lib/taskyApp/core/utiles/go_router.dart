@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:task/taskyApp/features/auth/presentation/views/login_view.dart';
 import 'package:task/taskyApp/features/auth/presentation/views/sign_up.dart';
-import 'package:task/taskyApp/features/home/presentaion/views/add_task_view.dart';
-import 'package:task/taskyApp/features/home/presentaion/views/task_details_view.dart';
+import 'package:task/taskyApp/features/addTask/presentation/views/add_task_view.dart';
+import 'package:task/taskyApp/features/taskDetails/presentation/view/task_details_view.dart';
 import 'package:task/taskyApp/features/home/presentaion/views/tasks_home_view.dart';
-import 'package:task/taskyApp/features/home/presentaion/views/user_profile_view.dart';
+import 'package:task/taskyApp/features/userProfile/presentation/view/user_profile_view.dart';
 import 'package:task/taskyApp/features/onbording_screen/welcome_view.dart';
 import 'package:task/taskyApp/features/splash/splash_view.dart';
 
@@ -14,10 +14,10 @@ abstract class AppRouter {
   static String kLoginView = '/logIn';
   static String kSignUpview = '/signUp';
   static String kWelcomeView = '/welcome';
- static String khomeView = '/home';
+  static String khomeView = '/home';
   static String kTaskDetailsView = '/taskDetails';
   static String kAddTaskView = '/addTask';
-    static String kProfile = '/profile';
+  static String kProfile = '/profile';
   static final GoRouter router = GoRouter(
     routes: <RouteBase>[
       GoRoute(
@@ -44,25 +44,25 @@ abstract class AppRouter {
           return const WelcomScreen();
         },
       ),
-        GoRoute(
+      GoRoute(
         path: khomeView,
         builder: (BuildContext context, GoRouterState state) {
           return const TasksHomeView();
         },
       ),
-           GoRoute(
+      GoRoute(
         path: kTaskDetailsView,
         builder: (BuildContext context, GoRouterState state) {
           return const TaskDetailsView();
         },
       ),
-            GoRoute(
+      GoRoute(
         path: kAddTaskView,
         builder: (BuildContext context, GoRouterState state) {
           return const AddTaskView();
         },
       ),
-             GoRoute(
+      GoRoute(
         path: kProfile,
         builder: (BuildContext context, GoRouterState state) {
           return const UserProfileView();

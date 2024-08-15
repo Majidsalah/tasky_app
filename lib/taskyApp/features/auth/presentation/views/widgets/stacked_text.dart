@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:task/taskyApp/core/widgets/app_Image.dart';
 import 'package:task/taskyApp/features/auth/presentation/views/widgets/custom_text.dart';
@@ -11,10 +10,11 @@ class StackedText extends StatelessWidget {
   final String text;
   @override
   Widget build(BuildContext context) {
-    return const Stack(
-      alignment: Alignment.bottomLeft, children: [
-       AppImage(),
-      CustomText(text: "Sign Up",),
+    return const Stack(alignment: Alignment.bottomLeft, children: [
+      AppImage(),
+      CustomText(
+        text: "Sign Up",
+      ),
     ]);
   }
 }
