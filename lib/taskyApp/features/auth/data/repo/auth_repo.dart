@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:task/taskyApp/core/errors/failure.dart';
+import 'package:task/taskyApp/core/errors/errors.dart';
+import 'package:task/taskyApp/features/auth/data/models/logInModel/log_in_model.dart';
 import 'package:task/taskyApp/features/auth/data/models/signUpModel/sign_up.dart';
 
 abstract class AuthRepo {
@@ -10,5 +11,9 @@ abstract class AuthRepo {
     required int experienceYears,
     required String level,
     required String address,
+  });
+  Future<Either<Failure, LogInModel>> userLogIn({
+    required String phone,
+    required String password,
   });
 }

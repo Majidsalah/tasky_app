@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:task/taskyApp/core/utiles/shared_prefrences.dart';
 import 'package:task/taskyApp/features/auth/presentation/views/login_view.dart';
 import 'package:task/taskyApp/features/auth/presentation/views/sign_up.dart';
 import 'package:task/taskyApp/features/addTask/presentation/views/add_task_view.dart';
+import 'package:task/taskyApp/features/home/data/models/all_tasks.dart';
 import 'package:task/taskyApp/features/taskDetails/presentation/view/task_details_view.dart';
 import 'package:task/taskyApp/features/home/presentaion/views/tasks_home_view.dart';
+import 'package:task/taskyApp/features/userProfile/model/user_model.dart';
 import 'package:task/taskyApp/features/userProfile/presentation/view/user_profile_view.dart';
 import 'package:task/taskyApp/features/onbording_screen/welcome_view.dart';
 import 'package:task/taskyApp/features/splash/splash_view.dart';
@@ -18,6 +21,7 @@ abstract class AppRouter {
   static String kTaskDetailsView = '/taskDetails';
   static String kAddTaskView = '/addTask';
   static String kProfile = '/profile';
+
   static final GoRouter router = GoRouter(
     routes: <RouteBase>[
       GoRoute(
@@ -41,7 +45,9 @@ abstract class AppRouter {
       GoRoute(
         path: kWelcomeView,
         builder: (BuildContext context, GoRouterState state) {
-          return const WelcomScreen();
+          return ShPref.getAccessToken() == null
+              ? const WelcomScreen()
+              : const TasksHomeView();
         },
       ),
       GoRoute(
@@ -52,8 +58,10 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kTaskDetailsView,
-        builder: (BuildContext context, GoRouterState state) {
-          return const TaskDetailsView();
+        builder: (context, state) {
+          return TaskDetailsView(
+            task: state.extra as TasksModel,
+          );
         },
       ),
       GoRoute(

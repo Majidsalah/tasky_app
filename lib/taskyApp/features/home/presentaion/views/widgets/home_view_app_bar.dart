@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:iconly/iconly.dart';
 import 'package:task/taskyApp/core/utiles/constanst.dart';
 import 'package:task/taskyApp/core/utiles/go_router.dart';
+import 'package:task/taskyApp/core/utiles/shared_prefrences.dart';
 
 class HomeViewAppBar extends StatelessWidget {
   const HomeViewAppBar({super.key});
@@ -24,11 +25,16 @@ class HomeViewAppBar extends StatelessWidget {
             flex: 1,
           ),
           IconButton(
-            onPressed: () => GoRouter.of(context).push(AppRouter.kProfile),
+            onPressed: () async {
+              GoRouter.of(context).push(AppRouter.kProfile);
+            },
             icon: Icon(IconlyBold.profile, color: kPrimaryColor, size: 24),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              ShPref.clearAllData();
+              GoRouter.of(context).push(AppRouter.kLoginView);
+            },
             icon: Icon(Icons.logout_outlined, color: kPrimaryColor, size: 24),
           ),
         ],

@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:task/taskyApp/core/utiles/app_text_styles.dart';
 import 'package:task/taskyApp/core/utiles/constanst.dart';
+import 'package:task/taskyApp/features/home/presentaion/manager/cubit/home_tasks_cubit.dart';
 
+// ignore: must_be_immutable
 class StatusTabBar extends StatefulWidget {
-  const StatusTabBar({super.key});
-
+  StatusTabBar({super.key, required this.selectedStatus});
+  String? selectedStatus;
   @override
   State<StatusTabBar> createState() => _StatusTabBarState();
 }
@@ -24,10 +27,12 @@ class _StatusTabBarState extends State<StatusTabBar> {
             scrollDirection: Axis.horizontal,
             itemBuilder: (_, index) {
               return GestureDetector(
-                onTap: () {
+                onTap: () async {
                   setState(() {
                     isClicked = index;
                   });
+                  await BlocProvider.of<HomeTasksCubit>(context)
+                      .getTasksList(statusTabBarlist[index].toLowerCase());
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(right: 6),

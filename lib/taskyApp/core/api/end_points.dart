@@ -3,8 +3,9 @@ class EndPoint {
   static String login = "auth/login";
   static String register = "auth/register";
   static String logout = "auth/logout";
-  static String profile = "auth/profile";
-  static String addTask = "todos";
+  static String profile = "${baseUrl}auth/profile";
+  static String addTask = "${baseUrl}todos";
+  static String editTask = "${baseUrl}todos/";
   static String refreshToken(token) {
     return "auth/refresh-token?token=$token";
   }

@@ -5,7 +5,7 @@ import 'package:task/taskyApp/core/utiles/constanst.dart';
 class ColoredStatusContainer extends StatelessWidget {
   const ColoredStatusContainer({
     super.key,
-    this.status = 'Waiting',
+    required this.status,
   });
   final String status;
   @override
@@ -23,10 +23,10 @@ class ColoredStatusContainer extends StatelessWidget {
   }
 
   getContainerColor() {
-    switch (status) {
-      case "Waiting":
+    switch (status.characters.first) {
+      case "w" || 'W':
         return kLightOrangeColor;
-      case "Finished":
+      case "f" || 'F':
         return kLightBlueColor;
       default:
         return kSecondryColor;
@@ -34,10 +34,10 @@ class ColoredStatusContainer extends StatelessWidget {
   }
 
   getTextColor() {
-    switch (status) {
-      case "Waiting":
+    switch (status.characters.first) {
+      case "w" || 'W':
         return kOrangeColor;
-      case "Finished":
+      case "f" || 'F':
         return kBlueColor;
       default:
         return kPrimaryColor;

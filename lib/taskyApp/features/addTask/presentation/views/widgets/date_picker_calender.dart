@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 import 'package:task/taskyApp/core/utiles/app_text_styles.dart';
@@ -8,15 +10,17 @@ class DatePickerCalender extends StatefulWidget {
   DatePickerCalender({
     super.key,
     this.filled = false,
+    required this.dueDate,
   });
-  DateTime? datetime;
+  String? dueDate;
+  DateTime? _selectedDate;
   final bool filled;
-
   @override
   State<DatePickerCalender> createState() => _DatePickerCalenderState();
 }
 
 class _DatePickerCalenderState extends State<DatePickerCalender> {
+  String? endDate;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -35,7 +39,7 @@ class _DatePickerCalenderState extends State<DatePickerCalender> {
                     children: [
                       Text('End Date ', style: textStyle12),
                       Text(
-                        '30 June, 2022',
+                        widget.dueDate!,
                         style: textStyle14,
                       )
                     ],
@@ -54,21 +58,25 @@ class _DatePickerCalenderState extends State<DatePickerCalender> {
   }
 
   convertDate() {
-    if (widget.datetime == null) {
+    if (widget._selectedDate == null) {
       return 'Choose due date...';
     } else {
-      return '${widget.datetime!.day.toString()} / ${widget.datetime!.month.toString()} / ${widget.datetime!.year.toString()}';
+      endDate =
+          '${widget._selectedDate!.day.toString()} / ${widget._selectedDate!.month.toString()} / ${widget._selectedDate!.year.toString()}';
+      log(widget.dueDate.toString());
+
+      return endDate;
     }
   }
 
   void _showDatePicker() {
     showDatePicker(
             context: context,
-            firstDate: DateTime(2000),
+            firstDate: DateTime.now(),
             lastDate: DateTime(2050))
         .then((value) {
       setState(() {
-        widget.datetime = value!;
+        widget._selectedDate = value!;
       });
     });
   }

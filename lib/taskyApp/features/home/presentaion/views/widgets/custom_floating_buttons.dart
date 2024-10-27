@@ -11,14 +11,6 @@ class CustomFloatingButtons extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        FloatingActionButton.small(
-          shape: const CircleBorder(),
-          heroTag: null,
-          backgroundColor: kSecondryColor,
-          onPressed: () {},
-          child: Image.asset(qrIcon, height: 24),
-        ),
-        const SizedBox(height: 14),
         FloatingActionButton(
           shape: const CircleBorder(),
           heroTag: null,
@@ -26,6 +18,7 @@ class CustomFloatingButtons extends StatelessWidget {
           onPressed: () => GoRouter.of(context).push(AppRouter.kAddTaskView),
           child: const Icon(Icons.add, color: Colors.white, size: 32),
         ),
+        // const SizedBox(height: 16),
       ],
     );
   }
